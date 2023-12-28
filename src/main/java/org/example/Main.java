@@ -12,9 +12,13 @@ public class Main {
         return number.matches("\\(\\+380\\)\\d{2}-\\d{3}-\\d{2}-\\d{2}");
     }
 
+    static String replace_spaces(String text){
+        return text.replaceAll("\\s+", " ");
+    }
+
     public static void main(String[] args) {
 
-
+        // Завдання 1.
         List<String> phoneNumbers = Arrays.asList("(+380)50-333-33-33", "(+380)67-5234-225-55", "123-45-678"); // додайте номери для перевірки
 
         for (String phoneNumber : phoneNumbers) {
@@ -24,14 +28,10 @@ public class Main {
                 System.out.println("Номер телефону " + phoneNumber + " невірний");
             }
         }
+        // Завдання 2.
+        String inputString = "Я хочу    бути     програмістом";
+        String resultString = replace_spaces(inputString);
+        System.out.println("Рядок після заміни пробілів: " + resultString);
 
-        // Приклад 2:
-        String inputEmails = "john@example.com, alice@gmail.com, bob@yahoo.com";
-        Pattern pattern2 = Pattern.compile("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}");
-        Matcher matcher2 = pattern2.matcher(inputEmails);
-
-        while (matcher2.find()) {
-            System.out.println("Знайдено email: " + matcher2.group());
-        }
     }
 }
